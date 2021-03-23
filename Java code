@@ -1,14 +1,20 @@
 public static int Add(String numbers)
     {
-         
-        if(numbers.length()==0)        // case of an empty string
+        int result=0;
+        if(numbers.length()==0)               // case of an empty string
         return 0;
-        else if(numbers.length()==1)           // one operand
-        return Integer.parseInt(numbers);
-        else                                 // two operands
+        else                                 // one or more operands
         {
-        String parts[]=numbers.split(",");
-        return Integer.parseInt(parts[0])+Integer.parseInt(parts[1]);
+            String parts[]=numbers.split(",");
+            for(int i=0;i<parts.length;i++ ) 
+            {
+                result+=Integer.parseInt(parts[i]);
+                
+            }
+            
         }
+        
+        return result;
+        
         
     }

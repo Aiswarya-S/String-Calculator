@@ -1,0 +1,14 @@
+public static int Add(String numbers)
+    {
+         
+        if(numbers.length()==0)        // case of an empty string
+        return 0;
+        else if(numbers.length()==1)           // one operand
+        return Integer.parseInt(numbers);
+        else                                 // two operands
+        {
+        String parts[]=numbers.split(",");
+        return Integer.parseInt(parts[0])+Integer.parseInt(parts[1]);
+        }
+        
+    }

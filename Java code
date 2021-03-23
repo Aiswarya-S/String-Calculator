@@ -1,4 +1,4 @@
-public static int Add(String numbers)
+public static int Add(String numbers)throws NegativeNumberException
     {
         int result=0;
         if(numbers.length()==0)        // case of an empty string
@@ -11,10 +11,12 @@ public static int Add(String numbers)
                 replacement=numbers.charAt(2);
                 numbers=numbers.replaceAll(Character.toString(replacement),",");
             }
-            numbers=numbers.replaceAll("\n",",");// replace new line with comma
+            //numbers=numbers.replaceAll("\n",",");// replace new line with comma
             String parts[]=numbers.split(",");
             for(int i=0;i<parts.length;i++ ) 
             {
+                if(Integer.parseInt(parts[i])<0)// checking if number less than zero
+                throw new NegativeNumberException("negavtives not allowed-"+Integer.parseInt(parts[i]));
                 result+=Integer.parseInt(parts[i]);
                 
             }
